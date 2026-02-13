@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuideApp - Virtual Tour App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+    </button>
+
+    <div class="card" id="businessCard">
+      <div class="card-header">
+        <div class="avatar">
+          <img src="..." alt="GeoGuide Logo" id="avatarImg">
+        </div>
+        <div class="header-info">
+          <h1 id="userName">GuideApp</h1>
+          <p class="title" id="userTitle">Plataforma Global de Tours Virtuales</p>
+          <p class="location" id="userLocation">📍 Disponible en App Store & Play Store</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <h2>Sobre la Aplicación</h2>
+        <p id="userBio" class="bio">
+          GuideApp es la aplicación líder en turismo inmersivo. Conectamos a viajeros con destinos remotos a través de tecnología 360°, realidad aumentada y guías locales en vivo, permitiendo explorar el mundo sin fronteras.
+        </p>
+      </div>
+
+      <div class="card-section">
+        <h2>Atención al Cliente</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <span id="userEmail">soporte@guideapp.app</span>
+            <button id="copyEmailBtn" class="btn btn-small">Copiar</button>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🌐</span>
+            <span id="userPhone">www.guideapp.app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <h2>Tecnología y Servicios</h2>
+        <div id="skillsList" class="skills-list">
+          <div class="skill-item">
+            <p class="skill-name">Realidad Virtual (VR)</p>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Audio Guías Multilingües</p>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Streaming 4K en Vivo</p>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+          </div>
+        </div>
+        <button id="toggleSkills" class="btn btn-secondary">Ver todas las funciones</button>
+      </div>
+
+      <div class="card-section">
+        <h2>Síguenos</h2>
+        <div id="socialLinks" class="social-links">
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">YouTube</a>
+          <a href="#" class="social-link">Facebook</a>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <h2>Estadísticas de la Plataforma</h2>
+        <div id="stats" class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value">5M+</span>
+            <span class="stat-label">Descargas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">150+</span>
+            <span class="stat-label">Destinos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">4.8</span>
+            <span class="stat-label">App Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>GuideApp © 2026 - Tu ventana al mundo</p>
+      <p class="small">Proyecto Tecnológico - Semana 01</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
