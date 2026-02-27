@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Colección | App de Guías Turísticas Virtuales</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>📦 Gestor de Guias Virtuales</h1>
+      <p class="subtitle">App de Guías Turísticas Virtuales</p><br><br>
+      <div class="stats-summary" id="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">50</strong></span>
+        <span class="stat">Publicados: <strong id="stat-active">45</strong></span>
+        <span class="stat">En Revisión: <strong id="stat-inactive">5</strong></span>
+      </div>
+    </header>
+
+    <!-- Item Form -->
+    <section class="form-section">
+      <h2 id="form-title">➕ Nueva Guía Turística</h2><br>
+      <form id="item-form" class="item-form">
+        <input type="hidden" id="item-id" value="">
+
+        <div class="form-group">
+          <label for="item-name"><strong>Título</strong></label>
+          <input
+            type="text"
+            id="item-name"
+            placeholder="Título de la guía turística"
+            required
+          >
+        </div><br>
+
+        <div class="form-group">
+          <label for="item-description"><strong>Descripción</strong></label>
+          <textarea
+            id="item-description"
+            rows="3"
+            placeholder="Detalles de la Experiencia (opcional)"
+          ></textarea>
+        </div><br>
+
+        <div class="form-group">
+          <label for="item-location"><strong>Ubicación</strong></label>
+          <textarea
+            id="item-location"
+            rows="3"
+            placeholder="Ubicación de la guía turística"
+          ></textarea>
+        </div><br>
+
+        <div class="form-group">
+          <label for="item-duration"><strong>Duración</strong></label>
+          <textarea
+            id="item-duration"
+            rows="3"
+            placeholder="Duración estimada de la experiencia"
+          ></textarea>
+        </div><br>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-topic"><strong>Temática de la guía</strong></label>
+            <select id="item-topic">
+              <option value="Topic1">🏛️ Cultura e Historia</option>
+              <option value="Topic2">🍽️ Gastronomía</option>
+              <option value="Topic3">🌳 Naturaleza y Ecoturismo</option>
+              <option value="Topic4">🏙️ Arquitectura Urbana</option>
+              <option value="Topic5">🚴‍♂️ Aventura y Deporte</option>
+              <option value="other">📌 Otro</option>
+            </select>
+          </div><br>
+
+          <div class="form-group">
+            <label for="item-access"><strong>Tipo de Acceso</strong></label>
+            <select id="item-access">
+              <option value="free">🟢 Gratuita / Estándar</option>
+              <option value="registered" selected>🟡 Solo registrados</option>
+              <option value="premium">🟣 Premium / Pago</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Crear
+          </button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: ruby;">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </section><br><br>
+
+    <!-- Filters & Search -->
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-status">Estado:</label>
+          <select id="filter-status">
+            <option value="all">Todos</option>
+            <option value="active">Publicados</option>
+            <option value="inactive">En Revisión</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-topic">Temática:</label>
+          <select id="filter-topic">
+            <option value="all">Todas</option>
+            <option value="Topic1">🏛️ Cultura e Historia</option>
+            <option value="Topic2">🍽️ Gastronomía</option>
+            <option value="Topic3">🌳 Naturaleza y Ecoturismo</option>
+            <option value="Topic4">🏙️ Arquitectura Urbana</option>
+            <option value="Topic5">🚴‍♂️ Aventura y Deporte</option>
+            <option value="other">📌 Otro</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-priority">Tipo de Acceso:</label>
+          <select id="filter-priority">
+            <option value="all">Todos</option>
+            <option value="free">🟢 Gratuita / Estándar</option>
+            <option value="registered">🟡 Solo registrados</option>
+            <option value="premium">🟣 Premium / Pago</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar:</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar guías turísticas..."
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Item List -->
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Lista de Guías Turísticas</h2><br>
+        <button class="btn btn-outline" id="clear-inactive">
+          🗑️ Eliminar Guías En Revisión
+        </button>
+      </div><br>
+
+      <div id="item-list" class="item-list">
+        <!-- Los elementos se renderizarán aquí con JavaScript -->
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay elementos que mostrar</p>
+        <p class="empty-state-hint">Crea tu primer elemento usando el formulario arriba</p>
+      </div>
+    </section>
+
+    <!-- Detailed Stats -->
+    <section class="detailed-stats">
+      <h3>📊 Estadísticas Detalladas</h3>
+      <div id="stats-details" class="stats-grid">
+        <!-- Las estadísticas se renderizarán aquí con JavaScript -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Script principal -->
+  <script src="starter/script.js"></script>
+</body>
+</html>
